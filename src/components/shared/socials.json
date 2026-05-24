@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_socials",
+  "info": {
+    "displayName": "Socials"
+  },
+  "options": {},
+  "attributes": {
+    "instagram": {
+      "type": "string",
+      "regex": "https?:\\/\\/[^\\s/$.?#].[^\\s]*"
+    },
+    "facebook": {
+      "type": "string",
+      "regex": "https?:\\/\\/[^\\s/$.?#].[^\\s]*"
+    },
+    "tiktok": {
+      "type": "string",
+      "regex": "https?:\\/\\/[^\\s/$.?#].[^\\s]*"
+    },
+    "youTube": {
+      "type": "string",
+      "regex": "https?:\\/\\/[^\\s/$.?#].[^\\s]*"
+    }
+  },
+  "config": {}
+}

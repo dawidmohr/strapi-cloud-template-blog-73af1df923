@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "music_clubs",
+  "info": {
+    "singularName": "music-club",
+    "pluralName": "music-clubs",
+    "displayName": "MusicClub"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "socials": {
+      "type": "component",
+      "component": "shared.socials",
+      "repeatable": false
+    },
+    "address": {
+      "type": "component",
+      "component": "shared.address",
+      "repeatable": false
+    }
+  }
+}
