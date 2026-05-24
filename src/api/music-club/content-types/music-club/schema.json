@@ -14,6 +14,10 @@
     "name": {
       "type": "string"
     },
+    "webPage": {
+      "type": "string",
+      "regex": "https?:\\/\\/[^\\s/$.?#].[^\\s]*"
+    },
     "socials": {
       "type": "component",
       "component": "shared.socials",

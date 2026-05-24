@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bands",
+  "info": {
+    "singularName": "band",
+    "pluralName": "bands",
+    "displayName": "band"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "webPage": {
+      "type": "string"
+    },
+    "socials": {
+      "type": "component",
+      "component": "shared.socials",
+      "repeatable": false
+    },
+    "music_event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::music-event.music-event",
+      "inversedBy": "bands"
+    }
+  }
+}

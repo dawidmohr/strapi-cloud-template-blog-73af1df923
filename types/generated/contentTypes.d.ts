@@ -531,6 +531,38 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBandBand extends Struct.CollectionTypeSchema {
+  collectionName: 'bands';
+  info: {
+    displayName: 'band';
+    pluralName: 'bands';
+    singularName: 'band';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::band.band'> &
+      Schema.Attribute.Private;
+    music_event: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::music-event.music-event'
+    >;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    socials: Schema.Attribute.Component<'shared.socials', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    webPage: Schema.Attribute.String;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -619,6 +651,38 @@ export interface ApiMusicClubMusicClub extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     socials: Schema.Attribute.Component<'shared.socials', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    webPage: Schema.Attribute.String;
+  };
+}
+
+export interface ApiMusicEventMusicEvent extends Struct.CollectionTypeSchema {
+  collectionName: 'music_events';
+  info: {
+    displayName: 'musicEvent';
+    pluralName: 'music-events';
+    singularName: 'music-event';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bands: Schema.Attribute.Relation<'oneToMany', 'api::band.band'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.DateTime;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::music-event.music-event'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1138,9 +1202,11 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::band.band': ApiBandBand;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::music-club.music-club': ApiMusicClubMusicClub;
+      'api::music-event.music-event': ApiMusicEventMusicEvent;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "music_events",
+  "info": {
+    "singularName": "music-event",
+    "pluralName": "music-events",
+    "displayName": "musicEvent"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "description": {
+      "type": "text"
+    },
+    "bands": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::band.band",
+      "mappedBy": "music_event"
+    }
+  }
+}
